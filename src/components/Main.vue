@@ -27,6 +27,7 @@ body{
   display: grid;
   align-content: center;
   overflow: hidden;
+  padding: 0px;
 }
 
 .login-container{
