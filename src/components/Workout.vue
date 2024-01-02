@@ -1,39 +1,57 @@
-<script setup lang="ts">
-
+<script>
+export default {
+  name: 'Workout',
+  data() {
+    return {
+      workouts: []
+    };
+  },
+  methods: {
+    async getWorkouts() {
+      try {
+        const response = await fetch('http://localhost:8080/workouts', {
+          method: 'GET',
+          mode: 'cors',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          redirect: 'follow',
+        });
+        if (response.ok) {
+          this.workouts = await response.json();
+          console.log(this.workouts);
+        } else {
+          throw new Error("Failed to fetch workouts");
+        }
+      } catch (error) {
+        console.error("Error fetching workouts:", error);
+      }
+    }
+  },
+  created() {
+    this.getWorkouts();
+  }
+};
 </script>
 
 <template>
-  <Workoutlist>
-    <div class="container">
-      <div class="container-neues-workout">
-        <h2>Gespeicherte Workouts</h2>
-        <RouterLink class=nav-button to="/neuesWorkout">Ein leeres Workout beginnen</RouterLink>
-      </div>
-      <div class="card">
-        <h2>Legs</h2>
-        <p>3 x Squads (Barbell)</p>
-        <p>3 x Leg Extensions (Maschine)</p>
-        <p>3 x Flat Leg Raise</p>
-        <p>3 x Standing Calf Raise (Dumbbell)</p>
-      </div>
-
-      <div class="card">
-        <h2>Chest and Triceps</h2>
-        <p>3 x Bench Press (Barbell)</p>
-        <p>3 x Incline Bench Press (Barbbell)</p>
-        <p>3 x Lateral Raise (Dumbbell)</p>
-        <p>3 x Skullcrusher (Barbbell)</p>
-      </div>
-
-      <div class="card">
-        <h2>Back and Biceps</h2>
-        <p>3 x Deadlift (Barbell)</p>
-        <p>3 x Seated Row (Cable)</p>
-        <p>3 x Lat Pulldown (Cable)</p>
-        <p>3 x Biceps Curls (Barbbell)</p>
-      </div>
+  <div class="container">
+    <div class="container-neues-workout">
+      <h2>Gespeicherte Workouts</h2>
+      <RouterLink class="nav-button" to="/neuesWorkout">Ein leeres Workout beginnen</RouterLink>
     </div>
-  </Workoutlist>
+    <div v-for="workout in workouts" :key="workout.id" class="card">
+      <h3>Workoutname: {{ workout.workoutname }}</h3>
+      <ul>
+        <li v-if="workout.uebung1">Übung 1: {{ workout.uebung1 }}</li>
+        <li v-if="workout.uebung2">Übung 2: {{ workout.uebung2 }}</li>
+        <li v-if="workout.uebung3">Übung 3: {{ workout.uebung3 }}</li>
+        <li v-if="workout.uebung4">Übung 4: {{ workout.uebung4 }}</li>
+        <li v-if="workout.uebung5">Übung 5: {{ workout.uebung5 }}</li>
+        <li v-if="workout.uebung6">Übung 6: {{ workout.uebung6 }}</li>
+      </ul>
+    </div>
+  </div>
 </template>
 
 <style>
@@ -75,5 +93,9 @@ body{
   background-color: white;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
+}
+
+.workout_card{
+  text-justify: auto;
 }
 </style>

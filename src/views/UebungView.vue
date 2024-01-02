@@ -3,7 +3,9 @@ import uebunglist from "../components/Uebung.vue"
 </script>
 
 <template>
-  <uebunglist></uebunglist>
+  <uebunglist>
+
+  </uebunglist>
 </template>
 
 <style>

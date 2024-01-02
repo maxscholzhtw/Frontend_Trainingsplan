@@ -7,17 +7,7 @@ import {RouterLink} from "vue-router";
   <uebunglist>
     <h1>Übungsliste</h1>
 
-    <RouterLink class="card-link" to="/klimmzüge">
-      <div class="card-uebungen" id="link1">
-        <div class="card-container-img">
-          <img class="card-img" src="../assets/Klimmzüge.png" alt="Klimmzüge">
-        </div>
-        <div class="card-container-text">
-          <h2>Rücken</h2>
-          <p>Klimmzüge</p>
-        </div>
-      </div>
-    </RouterLink>
+    <router-link :to="{ name: 'UebungsDetailView', params: { id: uebung.id } }" class="btn btn-primary">Show</router-link>
 
     <RouterLink class="card-link" to="/ligetütze">
       <div class="card-uebungen" id="link1">

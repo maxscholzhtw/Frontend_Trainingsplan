@@ -29,7 +29,7 @@ export default {
   data() {
     return {
       newWorkout: {
-        Workoutname: '',
+        workoutname: '',
         uebung1: '',
         uebung2: '',
         uebung3: '',
@@ -46,7 +46,7 @@ export default {
       var myHeaders = new Headers();
       myHeaders.append("Content-Type", "application/json");
       var raw = JSON.stringify({
-        "Workoutname": this.newWorkout.Workoutname,
+        "workoutname": this.newWorkout.workoutname,
         "uebung1": this.newWorkout.uebung1,
         "uebung2": this.newWorkout.uebung2,
         "uebung3": this.newWorkout.uebung3,
@@ -89,7 +89,7 @@ label{
 }
 
 button{
-  margin: 10px 0px 0px 0px;
+  margin: 30px 0px 0px 0px;
   background-color: white;
 }
 </style>

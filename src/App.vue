@@ -7,7 +7,7 @@ import { RouterLink, RouterView } from 'vue-router'
   <header>
     <div class="navigationsbar">
       <div class="navigationsbar-link-container">
-        <RouterLink class="nav-links" to="/workoutlist">Workout</RouterLink>
+        <RouterLink class="nav-links" to="/workout">Workout</RouterLink>
         <img src="./assets/dumbbell.png">
       </div>
       <div class="navigationsbar-link-container">
@@ -15,7 +15,7 @@ import { RouterLink, RouterView } from 'vue-router'
         <img src="./assets/stopwatch.png">
       </div>
       <div class="navigationsbar-link-container">
-        <RouterLink class="nav-links" to="/uebunglist">Übungen</RouterLink>
+        <RouterLink class="nav-links" to="/uebung">Übungen</RouterLink>
         <img src="./assets/planer.png">
       </div>
     </div>

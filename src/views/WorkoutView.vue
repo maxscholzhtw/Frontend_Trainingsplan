@@ -1,9 +1,9 @@
 <script setup lang="ts">
 
-import Workoutlist from "../components/Workout.vue";
+import Workout from "../components/Workout.vue";
 
 </script>
 
 <template>
-  <Workoutlist></Workoutlist>
+  <Workout></Workout>
 </template>
