@@ -1,13 +1,9 @@
-<script setup lang ="ts">
-import uebunglist from "../components/Uebung.vue"
+<script setup lang="ts">
+
+import Uebung from "../components/Uebung.vue";
+
 </script>
 
 <template>
-  <uebunglist>
-
-  </uebunglist>
+  <Uebung></Uebung>
 </template>
-
-<style>
-
-</style>

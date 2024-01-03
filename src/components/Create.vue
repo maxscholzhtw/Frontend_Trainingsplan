@@ -1,5 +1,4 @@
 <template>
-  <workouterstellen>
     <form @submit.prevent="addWorkout">
       <div class="card">
         <label for="workoutname">Workoutname:</label>
@@ -21,7 +20,6 @@
       </div>
 
     </form>
-  </workouterstellen>
 </template>
 
 <script>

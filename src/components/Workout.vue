@@ -1,4 +1,4 @@
-<script>
+<script >
 export default {
   name: 'Workout',
   data() {
@@ -42,14 +42,14 @@ export default {
     </div>
     <div v-for="workout in workouts" :key="workout.id" class="card">
       <h3>Workoutname: {{ workout.workoutname }}</h3>
-      <ul>
-        <li v-if="workout.uebung1">Übung 1: {{ workout.uebung1 }}</li>
-        <li v-if="workout.uebung2">Übung 2: {{ workout.uebung2 }}</li>
-        <li v-if="workout.uebung3">Übung 3: {{ workout.uebung3 }}</li>
-        <li v-if="workout.uebung4">Übung 4: {{ workout.uebung4 }}</li>
-        <li v-if="workout.uebung5">Übung 5: {{ workout.uebung5 }}</li>
-        <li v-if="workout.uebung6">Übung 6: {{ workout.uebung6 }}</li>
-      </ul>
+      <div>
+        <p v-if="workout.uebung1">Übung 1: {{ workout.uebung1 }}</p>
+        <p v-if="workout.uebung2">Übung 2: {{ workout.uebung2 }}</p>
+        <p v-if="workout.uebung3">Übung 3: {{ workout.uebung3 }}</p>
+        <p v-if="workout.uebung4">Übung 4: {{ workout.uebung4 }}</p>
+        <p v-if="workout.uebung5">Übung 5: {{ workout.uebung5 }}</p>
+        <p v-if="workout.uebung6">Übung 6: {{ workout.uebung6 }}</p>
+      </div>
     </div>
   </div>
 </template>
@@ -86,6 +86,10 @@ body{
   background-color: #f0f0f0;
 }
 
+.card p {
+  padding: 10px 0px 0px 30px;
+}
+
 
 
 .container-neues-workout{
@@ -95,7 +99,4 @@ body{
   text-align: center;
 }
 
-.workout_card{
-  text-justify: auto;
-}
 </style>
