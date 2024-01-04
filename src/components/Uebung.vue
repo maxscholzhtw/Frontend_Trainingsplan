@@ -25,7 +25,33 @@ export default {
       } catch (error) {
         console.error("Error fetching uebung:", error);
       }
-    }
+
+
+    },
+
+    async deleteUebung(uebungsId) {
+      try {
+        const myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
+
+        const requestOptions = {
+          method: 'DELETE',
+          headers: myHeaders,
+          mode: 'cors',
+          redirect: 'follow',
+        };
+
+        await fetch(`http://localhost:8080/uebung/${uebungsId}`, requestOptions);
+        this.getUebung();
+      }
+
+
+      catch (error) {
+        console.error("Error deleting uebung:", error);
+      }
+
+
+    },
   },
   created() {
     this.getUebung();
@@ -34,30 +60,29 @@ export default {
 </script>
 
 <template>
-
   <div class="container">
     <div v-for="uebung in uebungs" :key="uebung.id" class="card">
-      <h3>{{ uebung.name }}</h3>
+      <router-link :to="{ name: 'UebungDetail', params: { id: uebung.id } }" class=""><h3>{{ uebung.name }}</h3></router-link>
+      <button @click="deleteUebung(uebung.id)" class="btn btn-danger">Delete</button>
     </div>
   </div>
 </template>
 
-
 <style>
-body{
+body {
   overflow: scroll;
 }
 
-h1{
+h1 {
   text-align: center;
 }
 
-p{
+p {
   justify-content: left;
-
 }
-h3{
+
+h3 {
   text-align: center;
+  color: #79CAFF;
 }
-
 </style>
