@@ -60,10 +60,13 @@ export default {
 </script>
 
 <template>
+  <div class="container-neues-workout">
+    <RouterLink class="nav-button" to="/neueUebung">Eine neue Übung erstellen</RouterLink>
+  </div>
   <div class="container">
     <div v-for="uebung in uebungs" :key="uebung.id" class="card">
       <router-link :to="{ name: 'UebungDetail', params: { id: uebung.id } }" class=""><h3>{{ uebung.name }}</h3></router-link>
-      <button @click="deleteUebung(uebung.id)" class="btn btn-danger">Delete</button>
+      <button @click="deleteUebung(uebung.id)" class="deleteButton">Delete</button>
     </div>
   </div>
 </template>
@@ -84,5 +87,9 @@ p {
 h3 {
   text-align: center;
   color: #79CAFF;
+}
+
+.deleteButton{
+  width: 50px;
 }
 </style>

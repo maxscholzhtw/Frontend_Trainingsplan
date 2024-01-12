@@ -33,12 +33,11 @@ export default {
         console.error("Error fetching uebung:", error);
       }
     },
-    created() {
-      this.getUebung();
-    }
+  },
+  created() {
+    this.getUebung();
   }
-}
-
+};
 </script>
 
   <template>
@@ -65,7 +64,13 @@ p{
 
 }
 h3{
-  text-align: center;
+  text-align: left;
+  margin-bottom: 10px;
+  font-size: 20px;
+
 }
 
+.container{
+  padding: 30px;
+}
 </style>

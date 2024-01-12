@@ -4,6 +4,7 @@ import TimerView from "@/views/TimerView.vue";
 import CreateView from "@/views/CreateView.vue";
 import UebungView from "@/views/UebungView.vue";
 import UebungsDetailView from "@/views/UebungsDetailView.vue";
+import NeueUebungView from "@/views/NeueUebungView.vue";
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -26,6 +27,11 @@ const router = createRouter({
       path: '/NeuesWorkout',
       name: 'NeuesWorkout',
       component: CreateView
+    },
+    {
+      path: '/NeueUebung',
+      name: 'NeueUebung',
+      component: NeueUebungView
     },
     {
     path: '/Uebung/:id',
