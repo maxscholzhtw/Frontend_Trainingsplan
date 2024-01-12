@@ -1,4 +1,4 @@
-import { mount } from '@vue/test-utils';
+import {flushPromises, mount} from '@vue/test-utils';
 import Uebung from '@/components/Uebung.vue';
 import { test, expect } from 'vitest';
 
@@ -10,6 +10,7 @@ test('calls deleteUebung method when delete button is clicked', async () => {
         deleteUebungCalled = true;
     };
     await wrapper.vm.getUebung();
-    await wrapper.find('.deleteButton').trigger('click');
+    wrapper.find('.deleteButton').trigger('click');
+    await flushPromises();
     expect(deleteUebungCalled).toBe(true);
 });

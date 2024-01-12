@@ -28,6 +28,29 @@ export default {
       }
     }
   },
+  async deleteWorkout(workoutId) {
+    try {
+      const myHeaders = new Headers();
+      myHeaders.append("Content-Type", "application/json");
+
+      const requestOptions = {
+        method: 'DELETE',
+        headers: myHeaders,
+        mode: 'cors',
+        redirect: 'follow',
+      };
+
+      await fetch(`http://localhost:8080/workout/${workoutId}`, requestOptions);
+      this.getUebung();
+    }
+
+
+    catch (error) {
+      console.error("Error deleting workout:", error);
+    }
+
+
+  },
   created() {
     this.getWorkouts();
   }
@@ -49,7 +72,9 @@ export default {
         <p v-if="workout.uebung4">Übung 4: {{ workout.uebung4 }}</p>
         <p v-if="workout.uebung5">Übung 5: {{ workout.uebung5 }}</p>
         <p v-if="workout.uebung6">Übung 6: {{ workout.uebung6 }}</p>
+
       </div>
+
     </div>
   </div>
 </template>
